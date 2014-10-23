@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exercícios</title>
+
+<style>
+	body, table {
+		font-family: "Trebuchet MS", Arial, Verdana, sans-serif;
+	}
+
+	table {
+		width: 500px;
+	}
+</style>
+
+</head>
+<body>
+	
+Filtra por tipo:
+<select id="filtra-tipo">
+	<option value="todos">Todos</option>
+	<option value="carro">Carro</option>
+	<option value="caminhao">Caminhão</option>
+	<option value="moto">Moto</option>
+</select>
+
+<table border="1" id="tabela-veiculos">
+	<thead>
+		<tr>
+			<th>Veículo</th>
+			<th>Fabricante</th>
+			<th>Tipo</th>
+			<th>Preço</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="veiculo carro fiat">
+			<td>Uno</td>
+			<td>Fiat</td>
+			<td>Passeio</td>
+			<td>R$ 18.000</td>
+		</tr>
+		<tr class="veiculo carro ford">
+			<td>Fiesta</td>
+			<td>Ford</td>
+			<td>Passeio</td>
+			<td>R$ 38.000</td>
+		</tr>
+		<tr class="veiculo carro vw">
+			<td>Gol</td>
+			<td>VW</td>
+			<td>Passeio</td>
+			<td>R$ 13.000</td>
+		</tr>
+		<tr class="veiculo caminhao ford">
+			<td>F-250</td>
+			<td>Ford</td>
+			<td>Caminhão</td>
+			<td>R$ 55.000</td>
+		</tr>		
+		<tr class="veiculo caminhao gm">
+			<td>D40</td>
+			<td>GM</td>
+			<td>Caminhão</td>
+			<td>R$ 45.000</td>
+		</tr>
+		<tr class="veiculo moto honda">
+			<td>CG 150</td>
+			<td>Honda</td>
+			<td>Moto</td>
+			<td>R$ 5.000</td>
+		</tr>
+		<tr class="veiculo moto yamaha">
+			<td>Fazer 250</td>
+			<td>Yamaha</td>
+			<td>Moto</td>
+			<td>R$ 9.000</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<script>
+	document.getElementById('filtra-tipo').onchange = function() {
+		var tipo = this.options[this.selectedIndex].value;
+		var linhas_da_tabela = document.querySelectorAll('#tabela-veiculos tbody tr');
+		if(tipo == 'todos'){
+			// exibimos todas se a opção todas for escolhida
+			for (var i = 0; i < linhas_da_tabela.length; i++) {
+				linhas_da_tabela[i].style.display = '';
+			};
+		}
+		else {
+
+			// primeiro escondemos todas as linhas
+			for (var i = 0; i < linhas_da_tabela.length; i++) {
+				linhas_da_tabela[i].style.display = 'none';
+			};
+
+			// em seguida só exibimos aquelas que correspondem a pesquisa
+			linhas_da_tabela = document.querySelectorAll('#tabela-veiculos tbody tr.' + tipo);
+
+			for (var i = 0; i < linhas_da_tabela.length; i++) {
+				linhas_da_tabela[i].style.display = '';
+			};
+		}
+	}
+</script>
+
+</body>
+</html>

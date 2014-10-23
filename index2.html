@@ -91,7 +91,7 @@ Filtra por tipo:
 				linhas_da_tabela[i].style.display = '';
 			};
 		}
-		else {
+		else if (tipo == 'carro') {
 
 			// primeiro escondemos todas as linhas
 			for (var i = 0; i < linhas_da_tabela.length; i++) {
@@ -99,13 +99,67 @@ Filtra por tipo:
 			};
 
 			// em seguida só exibimos aquelas que correspondem a pesquisa
-			linhas_da_tabela = document.querySelectorAll('#tabela-veiculos tbody tr.' + tipo);
+			linhas_da_tabela = document.querySelectorAll('#tabela-veiculos tbody tr.carro');
 
 			for (var i = 0; i < linhas_da_tabela.length; i++) {
 				linhas_da_tabela[i].style.display = '';
 			};
 		}
+		else if (tipo == 'caminhao') {
+
+			// primeiro escondemos todas as linhas
+			for (var i = 0; i < linhas_da_tabela.length; i++) {
+				linhas_da_tabela[i].style.display = 'none';
+			};
+
+			// em seguida só exibimos aquelas que correspondem a pesquisa
+			linhas_da_tabela = document.querySelectorAll('#tabela-veiculos tbody tr.caminhao');
+
+			for (var i = 0; i < linhas_da_tabela.length; i++) {
+				linhas_da_tabela[i].style.display = '';
+			};			
+		}
+		else if (tipo == 'moto') {
+
+			// primeiro escondemos todas as linhas
+			for (var i = 0; i < linhas_da_tabela.length; i++) {
+				linhas_da_tabela[i].style.display = 'none';
+			};
+
+			// em seguida só exibimos aquelas que correspondem a pesquisa
+			linhas_da_tabela = document.querySelectorAll('#tabela-veiculos tbody tr.moto');
+
+			for (var i = 0; i < linhas_da_tabela.length; i++) {
+				linhas_da_tabela[i].style.display = '';
+			};			
+		}
 	}
+
+	// Versão 2
+	// document.getElementById('filtra-tipo').onchange = function() {
+	// 	var tipo = this.options[this.selectedIndex].value;
+	// 	var linhas_da_tabela = document.querySelectorAll('#tabela-veiculos tbody tr');
+	// 	if(tipo == 'todos'){
+	// 		// exibimos todas se a opção todas for escolhida
+	// 		for (var i = 0; i < linhas_da_tabela.length; i++) {
+	// 			linhas_da_tabela[i].style.display = '';
+	// 		};
+	// 	}
+	// 	else {
+
+	// 		// primeiro escondemos todas as linhas
+	// 		for (var i = 0; i < linhas_da_tabela.length; i++) {
+	// 			linhas_da_tabela[i].style.display = 'none';
+	// 		};
+
+	// 		// em seguida só exibimos aquelas que correspondem a pesquisa
+	// 		linhas_da_tabela = document.querySelectorAll('#tabela-veiculos tbody tr.' + tipo);
+
+	// 		for (var i = 0; i < linhas_da_tabela.length; i++) {
+	// 			linhas_da_tabela[i].style.display = '';
+	// 		};
+	// 	}
+	// }
 </script>
 
 </body>
